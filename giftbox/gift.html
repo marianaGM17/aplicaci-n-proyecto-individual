@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Daniel Quintero Henriquez">
+    <meta name="description" content="Escena de realidad aumentada con a-frame">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realidad Aumentada</title>
+    <script src="librerias/aframe.min.js"></script>
+    <script src="librerias/aframe-ar.js"></script>
+    <script src="librerias/aframe-environment-component.min.js"></script>
+    <script src="librerias/aframe-extras.min.js"></script>
+</head>
+
+<body>
+    <!--Escena: Retiraremos la propiedad markerhandler embedded  para que no tenga errores en moviles-->
+    <a-scene vr-mode-ui="enabled: false" arjs="sourceType:webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; ">
+        <!--Aqui almacenaremos nuestros assets si tenemos mas de un modelo-->
+        <a-assets>
+            <!--Este sera el modelo de la skin de fornite-->
+            <a-assets-item id="gift" src="/giftbox/scene.gltf"></a-assets-item>
+        </a-assets>
+
+        <!--Aqui definimos el marcador que sera necesario para mostrar el modelo-->
+        <a-marker type="pattern" url="marcador/pattern-Marcador moño.patt">
+            <!--Aqui pondremos los ajustes(posicion,rotacion,escala,nombre del modelo, animacion - con el nombre de la animacion del modelo) de nuestro modelo 3D-->
+            <a-entity position="0 0 0" rotation="0 0 0" scale="0.60 0.60 0.60" gltf-model="#fornite" animation-mixer="clip: Emote AfroHouse"></a-entity>
+        </a-marker>
+        <!--Esta entidad sera la camara-->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
+
+<!--Hecho por Daniel Quintero❤-->
